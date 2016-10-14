@@ -12,7 +12,7 @@ int main()
   int nLayers = 3;          //number of hidden layers + 2
   int shape[] = {2,10,1};   //network shape, must be size nLayers
   double weight_scale = 0.1;//range of original sampling of weights
-  int batchSize = 23;       //subset picked out to estimate partial derivatives
+  int batchSize = 37;       //subset picked out to estimate partial derivatives
 
   //HMC
   double epsillon = 0.001;   //size of microstep

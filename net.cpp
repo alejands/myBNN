@@ -11,7 +11,7 @@ Net::Net(vector<int> s) : shape(s), weights(vector<double>()), next(vector<doubl
 //constructor
 //initilizes weights of network to random values between -1.0 and 1.0
 {
-  weight_scale = 1.0;
+  weight_scale = 0.1;
   batchSize = 1;
   count = 0;
   int w_size = 0;
@@ -275,10 +275,12 @@ double Net::potential(const vector<double> &t, const vector< vector<double> > &x
       V += pow(t[i] - netOutput, 2);
   }
 
+  V /= (2 * weight_scale*weight_scale);
+
   //for (int i = 0; i < weights.size(); i++)
   //  V += pow(weights[i],2)/pow(weight_scale,2);
 
-  return V / (2 * weight_scale*weight_scale);
+  return V;
 }
 
 
